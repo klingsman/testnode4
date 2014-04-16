@@ -3,13 +3,22 @@
 
 (function (homeController) {
 
+  var data = require('../data');
+
   homeController.init = function (app) {
     app.get('/hello', function(req, res) {
-      res.render("hello", {title: 'Hello'});
+
+      data.getNoteCategories(function(err, results) {
+        res.render("hello", {title: 'Hello', error: err, categories: results});
+      });
+
     });
 
     app.get('/world', function(req, res) {
-      res.render("hello", {title: 'World'});
+
+      data.getNoteCategories(function(err, results) {
+        res.render("hello", {title: 'World', error: err, categories: results});
+      })
     });
 
     app.get('/json', function(req, res) {
