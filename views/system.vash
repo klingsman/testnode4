@@ -1,0 +1,47 @@
+@html.extend('layout', function(model) {
+@html.block("body", function(model) {
+
+<h1>@model.title</h1>
+
+@if (model.error) {
+<p class="text-error">Error occured: @model.error</p>
+}
+
+<div class="row">
+  <div class="small-12 column">
+    <div class="panel">
+      <p>Lorem @model.title dolor sit amet, consectetur adipisicing elit. Accusantium cumque eius facere harum, inventore odit
+        omnis porro reprehenderit vero voluptatem?</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-4 column">
+    <div class="panel">
+      <h3>Links</h3>
+      <ul>
+        @model.systems.forEach(function (system) {
+        <li><a href="">@system.SystemDescr</a></li>
+        })
+      </ul>
+    </div>
+  </div>
+
+  <div class="small-8 column">
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A culpa harum sed velit? Deleniti minima mollitia
+        nesciunt ratione vero. Ab accusantium beatae dicta doloribus in magnam neque quia quidem tempora veritatis!
+        Architecto autem dicta distinctio eveniet exercitationem illo itaque iusto laborum minus nam nisi perspiciatis,
+        quod repellat suscipit, tenetur. Amet at consequatur dolorum excepturi fugiat id ipsa ipsam itaque labore, nulla
+        odit provident quidem quis quisquam rem saepe soluta. Adipisci amet animi assumenda corporis culpa dignissimos
+        doloribus ea eius ex, id iste, libero minima mollitia nisi non odio optio possimus praesentium quod sapiente
+        soluta voluptate, voluptatem voluptatum. Earum modi, vel.</p>
+    </div>
+  </div>
+
+</div>
+
+})
+})
