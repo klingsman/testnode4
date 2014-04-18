@@ -12,8 +12,6 @@ var controllers = require("./controllers");
 
 var app = express();
 
-// Init controllers
-controllers.init(app);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -33,6 +31,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// Init controllers
+controllers.init(app);
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 
@@ -40,7 +41,7 @@ app.get('/users', user.list);
 app.get('/hello', function(req, res) {
   res.render("hello", {title: 'Express + Vash'});
   res.set('Content-Type', 'application/xml');
-  res.send({name: 'kwan', age: 47});
+  res.send({name: 'test', age: 47});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
